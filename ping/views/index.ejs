@@ -1,0 +1,12 @@
+<html style="background-color: #fff;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous" />
+<body style="padding: 10%;  max-width: 1200px; margin: 0 auto">
+<h1 style="font-size: 4em; font-weight: 700">Ping Tool</h1>
+<h1 style="font-size: 2em; font-weight: 300">Ping is the sexiest tool in systems!</h1>
+<form action="/ping" method="post" style="margin-top: 2em">
+  <input name="ip" class="slds-input" placeholder="Give an IPv4 address here (e.g., 1.1.1.1)"/>
+  <input name="job_token" hidden value="<%= job_token %>"/>
+  <button class="slds-button slds-button_brand" style="margin-top: 10px">Pong</button>
+</form>
+
+</html>

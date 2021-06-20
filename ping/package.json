@@ -1,0 +1,23 @@
+{
+  "name": "21-ping",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.6",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "raw-socket": "^1.7.0",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "ioredis": "^4.27.5",
+    "uuid": "^8.3.2"
+  }
+}

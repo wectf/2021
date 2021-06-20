@@ -1,0 +1,42 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<h1>URL Bin</h1>
+<h3>Add links here!</h3>
+<form style="max-width: 300px;" action="/add" method="post">
+    <input name="link" class="form-control" placeholder="Link (Something like youtu.be/xxxx)" />
+    <br>
+    <input name="description" class="form-control" placeholder="Description" />
+    <br>
+    <input type="submit" />
+</form>
+<hr>
+<h3>Your Pinned URL List</h3>
+{% for i in pinned_links %}
+    <form method="post" action="/unpin">
+        <a href="{{i.link}}">{{ i.description }} ({{ i.link }})</a>
+        <input hidden name="link" value="{{ i.link }}" />
+        <input type="submit" value="Unpin" />
+    </form>
+{% endfor %}
+{% if num_pinned_links == 0 %}
+    <p>No pinned links</p>
+{% endif %}
+<hr>
+<h3>Your URL List</h3>
+{% for i in links %}
+    <form method="post" action="/pin">
+        <a href="{{i.link}}">{{ i.description }} ({{ i.link }})</a>
+        <input hidden name="link" value="{{ i.link }}" />
+        <input type="submit" value="Pin" />
+    </form>
+{% endfor %}
+{% if num_links == 0 %}
+    <p>No links with the keyword "{{ keyword }}"</p>
+{% endif %}
+<hr>
+<h3>Search</h3>
+<form style="max-width: 300px;" action="/">
+    <input name="keyword" class="form-control" placeholder="Link fragment" value="{{ keyword }}"/>
+    <br>
+    <input type="submit" />
+</form>

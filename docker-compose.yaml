@@ -1,0 +1,119 @@
+version: '3.7'
+
+services:
+  coin:
+    restart: always
+    build:
+      context: "./coin-exchange"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4001:4000"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.100
+  cache:
+    restart: always
+    build:
+      context: "./cache"
+      dockerfile: ./Dockerfile
+    environment:
+      FLAG: "we{adecbd5c-a02c-4d85-883e-caee34760745@b3TTer_u3e_cl0uDF1are}"
+      ADMIN_TOKEN: "CroRQgDwMmJdybKa"
+    ports:
+      - "4002:1006"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.101
+  urlbin:
+    restart: always
+    build:
+      context: "./urlbin"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4003:1004"
+    environment:
+      FLAG_URL: "https://rb.gy/sed1nf"
+      TOKEN: "YuazJEcfp55KkLgn"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.102
+  csp1:
+    restart: always
+    build:
+      context: "./csp1"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4004:1003"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.103
+  # cloudtable:
+  #   restart: always
+  #   build:
+  #     context: "./cloudtable"
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - "4006:1005"
+  #   networks:
+  #     chall:
+  #       ipv4_address: 172.128.1.105
+  gallery:
+    restart: always
+    build:
+      context: "./gallery"
+      dockerfile: ./Dockerfile
+    environment:
+      FLAG_URL: "https://gallery-img-cdn.ctf.so/d59b1698-1472-41b6-a38c-0b7c99f6e9623bb6ad7a-d320-4c44-809d-ff4fdf1392c1?Expires=7623987127&GoogleAccessId=gallery%40wectf21.iam.gserviceaccount.com&Signature=IYmyleOsLL9flZ6S6mL%2FlUbNTVYOJlK1jjIpsnflQxRimfDbCznBU40DSLhRdjeREGK%2BsWEZFZWFG083yc4ReqMygrHIi1PYvH%2FPlX1QybdEyz0u4zkrJwI8%2BZHPghzbIN%2BnFRYVaPwsMSAt0K9zuKFnx1SU6E4NbyhySPc0Rf5YHQVlrlpynfNDqTwqU4iifUnXPmkGmO9MpkN2N02DWAyQTXJvx%2BHGqJgsBMMBn%2FFlds%2F5wN0cR9oN5VaRvKHf%2BR%2FJn5WYvZGDRsRhRpipzHCXoQFbHuQzv1GUGH005Onl1C3BeTUWv3viz5Qfc6OL11O9SuXJHpZ2OjlrezNQRg%3D%3D"
+      ADMIN_TOKEN: "UtOF3tbWJaHSCImY"
+    ports:
+      - "4007:1000"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.106
+  phish:
+    restart: always
+    build:
+      context: "./phish"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4008:1002"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.107
+  include:
+    restart: always
+    build:
+      context: "./include"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4010:80"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.109
+  ping:
+    restart: always
+    build:
+      context: "./ping"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4011:3000"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.110
+  csp3:
+    restart: always
+    build:
+      context: "./csp3"
+      dockerfile: ./Dockerfile
+    ports:
+      - "4012:80"
+    networks:
+      chall:
+        ipv4_address: 172.128.1.111
+networks:
+  chall:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.128.0.0/16
+
