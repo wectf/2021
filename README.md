@@ -166,7 +166,7 @@ Cross-site websocket hijacking to transfer eth to you.
 Shou finally decided to formally study CSP and wrote some correct CSP. But, CSP is not enough for protecting a web app!
 #### Writeup
 
-CSRF to set long enough text (~10MB to get very significant timing difference) to pinned item then time-based XS-Search. Bruteforcing all would require at max (24+10)*6 tries.
+CSRF to set long enough text (~10MB to get very significant timing difference) to pinned item then time-based XS-Search. Bruteforcing all would require at max (26+10)*6 tries.
 
 
 # Ping
