@@ -136,7 +136,7 @@ Use service worker to hijack all requests to img-cdn domain.
 Shou made a free MySQL table creator. Try it out and hack it!
 #### Writeup
 
-Inject (SELECT * FROM flag) to the end of CREATE query. 
+Inject (SELECT * FROM `cloudtable`.flag) to the end of CREATE query. 
 
 # Phish
 110 solves / 592 pts
